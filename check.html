@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Page 3</title>
+    <link rel="stylesheet" href="style.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <div class="container">
+      <p id="result"></p>
+      <a id="Continue">Continue</a>
+
+      <script>
+        const difficulties = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9];
+
+        // Function to perform a skill check
+        function performSkillCheck(abilityScore, difficulty) {
+          // Compare the player's ability score to the difficulty level
+          return abilityScore >= difficulty;
+        }
+
+        const resultElement = document.getElementById("result");
+        const characterInfo = JSON.parse(localStorage.getItem("characterInfo"));
+        // Perform the skill check here and update the result accordingly
+
+        const isSuccess = performSkillCheck(
+          characterInfo.SMART,
+          difficulties[2]
+        );
+
+        if (isSuccess) {
+          resultElement.textContent = "It is just a routine inspection.";
+          resultElement.insertAdjacentHTML(
+            "afterend",
+            `<p>Your SMART is ${characterInfo.SMART} and difficulty is ${difficulties[2]}</p>`
+          );
+          const Continue = document.getElementById("Continue");
+          Continue.addEventListener("click", function () {
+            window.location.href = "1021.html";
+          });
+        } else {
+          resultElement.textContent = "You failed the skill check.";
+          resultElement.insertAdjacentHTML(
+            "afterend",
+            `<p>Your SMART is ${characterInfo.SMART} but difficulty is ${difficulties[2]}</p>`
+          );
+          resultElement.insertAdjacentHTML(
+            "afterend",
+            `<p>"Hmmm...but I received a call." "We did not call you." </p>`
+          );
+          resultElement.insertAdjacentHTML(
+            "afterend",
+            `<p>"There seems to be some misunderstanding."</p>`
+          );
+          resultElement.insertAdjacentHTML(
+            "afterend",
+            `<p>"You need to figure out what's going on."</p>`
+          );
+
+          // Redirect to game over page
+          const Continue = document.getElementById("Continue");
+          Continue.addEventListener("click", function () {
+            window.location.href = "ending1.html";
+          });
+        }
+      </script>
+    </div>
+  </body>
+</html>

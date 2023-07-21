@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Score Tracker</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      .score-container {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        margin-bottom: 10px;
+      }
+
+      .btn {
+        color: black;
+        background-color: white;
+        font-size: 1em;
+        font-family: "Press Start 2P", "consolas";
+      }
+      .txt {
+        color: rgb(0, 255, 17);
+        font-family: "Press Start 2P", "consolas";
+      }
+    </style>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="container">
+      <div class="score-container">
+        <div class="txt">SMART: <span id="SMART">0</span></div>
+        <div class="txt">VIOLENT: <span id="VIOLENT">0</span></div>
+        <div class="txt">FUNNY: <span id="FUNNY">0</span></div>
+        <div>Points Left: <span id="pointsLeft">5</span></div>
+      </div>
+      <button class="btn" onclick="addCharacter('SMART')">
+        Add Point to SMART
+      </button>
+      <button class="btn" onclick="addCharacter('VIOLENT')">
+        Add Point to VIOLENT
+      </button>
+      <button class="btn" onclick="addCharacter('FUNNY')">
+        Add Point to FUNNY
+      </button>
+
+      <button class="btn" onClick="saveCharacter()">Done</button>
+
+      <script>
+        let pointsLeft = 5;
+        let characterPoints = {
+          SMART: 0,
+          VIOLENT: 0,
+          FUNNY: 0,
+        };
+
+        function addCharacter(trait) {
+          if (pointsLeft > 0) {
+            characterPoints[trait] += 1;
+            const scoreElement = document.getElementById(trait);
+            scoreElement.textContent = characterPoints[trait];
+            pointsLeft -= 1;
+            const pointsLeftElement = document.getElementById("pointsLeft");
+            pointsLeftElement.innerText = pointsLeft;
+          }
+        }
+
+        function saveCharacter() {
+          if (pointsLeft == 0) {
+            localStorage.setItem(
+              "characterInfo",
+              JSON.stringify(characterPoints)
+            );
+            // navigate to next page
+            window.location = "shop2.html";
+          } else {
+            alert("You didn't use all the points!");
+          }
+        }
+      </script>
+    </div>
+  </body>
+</html>

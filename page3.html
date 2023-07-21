@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Page 3</title>
+    <link rel="stylesheet" href="style.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <h1>Skill Check</h1>
+    <p id="result"></p>
+
+    <script src="game.js"></script>
+    <script>
+      const resultElement = document.getElementById("result");
+      const characterInfo = JSON.parse(localStorage.getItem("characterInfo"));
+      // Perform the skill check here and update the result accordingly
+
+      const isSuccess = performSkillCheck(characterInfo.FUNNY, difficulties[5]);
+
+      if (isSuccess) {
+        resultElement.textContent = "You passed the skill check!";
+        // Continue the game to the next page
+      } else {
+        resultElement.textContent = "You failed the skill check. Game over.";
+        resultElement.insertAdjacentHTML(
+          "afterend",
+          `<p>Your FUNNY is ${characterInfo.FUNNY} but difficulty is ${difficulties[5]}</p>`
+        );
+        // Redirect to game over page
+      }
+    </script>
+  </body>
+</html>

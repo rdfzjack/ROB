@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <div class="container">
+      <p>"How can I assist you?" asked the security guard.</p>
+      <a id="deadBtn">This is a robbery!</a><br />
+      <a id="nextBtn">I am here to repair the air-con.</a>
+      <a id="thirdBtn">Third</a>
+
+      <script>
+        const nextBtn = document.getElementById("nextBtn");
+        const deadBtn = document.getElementById("deadBtn");
+        const thirdBtn = document.getElementById("thirdBtn");
+        let purchasedItems = localStorage.getItem("purchasedItems");
+
+        // get purchasedItems from localStorage
+        if (!purchasedItems["Item A"]) {
+          thirdOption = document
+            .getElementById("thirdBtn")
+            .setAttribute("hidden", true);
+        }
+
+        nextBtn.addEventListener("click", function () {
+          const AirconBr = localStorage.getItem("AirconBr");
+          if (AirconBr === "true") {
+            window.location.href = "1021.html";
+          } else {
+            window.location.href = "1022.html";
+          }
+        });
+
+        thirdBtn.addEventListener("click", function () {
+          window.location.href = "001.html";
+        });
+
+        deadBtn.addEventListener("click", function () {
+          window.location.href = "000.html";
+        });
+      </script>
+    </div>
+  </body>
+</html>

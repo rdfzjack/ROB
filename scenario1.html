@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Choose Your Outfit</title>
+  </head>
+  <body>
+    <h1>Choose Your Outfit</h1>
+    <form id="outfitForm">
+      <label>
+        <input type="radio" name="outfit" value="repairman" /> Repairman Uniform
+      </label>
+      <br />
+      <label>
+        <input type="radio" name="outfit" value="usual" /> As Usual
+      </label>
+      <br />
+      <label>
+        <input type="radio" name="outfit" value="clown" /> Clown Costume
+      </label>
+      <br />
+      <button type="submit">Continue</button>
+    </form>
+
+    <script src="gamee.js"></script>
+    <script type="text/javascript">
+      const characterInfo = JSON.parse(localStorage.getItem("characterInfo"));
+      console.log(characterInfo);
+    </script>
+  </body>
+</html>

@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Item Shop</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      .btn {
+        color: black;
+        background-color: white;
+        font-size: 1em;
+        font-family: "Press Start 2P", "consolas";
+      }
+      .txt {
+        color: rgb(0, 255, 17);
+        font-family: "Press Start 2P", "consolas";
+      }
+    </style>
+    <link rel="stylesheet" href="style.css" />
+    <script>
+      // Define the items with their prices
+      var items = {
+        "Item A": 100,
+        "Item B": 150,
+        "Item C": 80,
+        // Add the rest of the items and their prices
+        "Item Z": 200,
+      };
+
+      // Map internal item names to customized display names
+      var itemDisplayNames = {
+        "Item A": "Clown Costume",
+        "Item B": "Smart Potion",
+        // Add the rest of the items and their display names
+      };
+
+      var budget = 2000; // Set the initial budget
+      var purchasedItems = {}; // Initialize an empty object to store purchased items
+      const characterInfo = JSON.parse(localStorage.getItem("characterInfo"));
+
+      function purchaseItem(item) {
+        if (purchasedItems[item]) {
+          alert("You have already purchased this item!");
+        } else if (budget >= items[item]) {
+          purchasedItems[item] = true;
+          budget -= items[item];
+          document.getElementById(item).innerText = "Bought";
+          document.getElementById("budget").innerText = budget;
+          updatePurchasedItems();
+          if (item === "Item A") {
+            characterInfo.FUNNY += 2;
+          }
+          if (item === "Item B") {
+            characterInfo.SMART += 2;
+          }
+        } else {
+          alert("Not enough budget to purchase this item!");
+        }
+      }
+
+      // Function to update the list of purchased items
+      function updatePurchasedItems() {
+        var purchasedList = document.getElementById("purchasedItems");
+        purchasedList.innerHTML = "";
+        for (var item in purchasedItems) {
+          if (purchasedItems[item]) {
+            var listItem = document.createElement("li");
+            listItem.innerText = itemDisplayNames[item] || item; // Use the customized name if available, otherwise use the internal name
+            purchasedList.appendChild(listItem);
+          }
+        }
+      }
+
+      // Function to save purchased items and navigate to the next page
+      function saveAndContinue() {
+        localStorage.setItem("purchasedItems", JSON.stringify(purchasedItems));
+        localStorage.setItem("characterInfo", JSON.stringify(characterInfo));
+        window.location.href = "p1.html";
+      }
+
+      // Check for previously purchased items on page load
+      var storedItems = localStorage.getItem("purchasedItems");
+      if (storedItems) {
+        purchasedItems = JSON.parse(storedItems);
+        updatePurchasedItems();
+      }
+    </script>
+  </head>
+
+  <body>
+    <div class="container">
+      <h1>Item Shop</h1>
+      <p>Budget: $<span id="budget">2000</span></p>
+
+      <h2>Items:</h2>
+      <ul>
+        <li>
+          <button class="btn" id="Item A" onclick="purchaseItem('Item A')">
+            Clown Costume ($100)
+          </button>
+        </li>
+        <li>
+          <button class="btn" id="Item B" onclick="purchaseItem('Item B')">
+            Smart Potion ($150)
+          </button>
+        </li>
+        <li>
+          <button class="btn" id="Item C" onclick="purchaseItem('Item C')">
+            Item C ($80)
+          </button>
+        </li>
+        <!-- Add the rest of the items -->
+        <li>
+          <button class="btn" id="Item Z" onclick="purchaseItem('Item Z')">
+            Item Z ($200)
+          </button>
+        </li>
+      </ul>
+
+      <h2>Purchased Items:</h2>
+      <ul class="txt" id="purchasedItems"></ul>
+
+      <button class="btn" onclick="saveAndContinue()">That's all</button>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Page 2</title>
+    <link rel="stylesheet" href="style.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <div class="container">
+      <h1>You try to enter the side entrance.</h1>
+      <p id="result"></p>
+
+      <script src="gamee.js"></script>
+      <script>
+        const outfit = localStorage.getItem("outfit");
+
+        if (outfit === "repairman") {
+          document.getElementById("result").textContent =
+            "The guard allows you to enter.";
+          // Continue the game to the next page
+        } else {
+          document.textContent = "But are you really a repairman?";
+          // Handle skill check or redirect to game over page
+        }
+      </script>
+    </div>
+  </body>
+</html>

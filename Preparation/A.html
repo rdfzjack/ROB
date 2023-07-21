@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Page 1</title>
+  </head>
+  <body>
+    <h1>Page 1</h1>
+    <button id="trueBtn">True</button>
+    <button id="falseBtn">False</button>
+
+    <script>
+      const trueBtn = document.getElementById("trueBtn");
+      const falseBtn = document.getElementById("falseBtn");
+
+      trueBtn.addEventListener("click", function () {
+        localStorage.setItem("choice", "true");
+        window.location.href = "page2.html";
+      });
+
+      falseBtn.addEventListener("click", function () {
+        localStorage.setItem("choice", "false");
+        window.location.href = "page2.html";
+      });
+    </script>
+  </body>
+</html>
+
+if (purchasedItems["Clown Costume"]) { // do something }

@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Item Shop</title>
+    <script>
+      // Define the items with their prices
+      var items = {
+        "Item A": 100,
+        "Item B": 150,
+        "Item C": 80,
+        "Item Z": 200,
+      };
+
+      var budget = 2000; // Set the initial budget
+      var purchasedItems = {}; // Initialize an empty object to store purchased items
+      let characterInfo = localStorage.getItem("characterInfo");
+      // Function to handle item purchase
+      function purchaseItem(item) {
+        if (budget >= items[item]) {
+          purchasedItems[item] = true;
+          budget -= items[item];
+          document.getElementById(item).innerText = "Bought";
+          document.getElementById("budget").innerText = budget;
+          if (item === "ClownCostume") {
+            characterInfo.FUNNY += 2;
+          }
+          if (item === "SmartPotion") {
+            characterInfo.SMART += 2;
+          }
+          updatePurchasedItems();
+        } else {
+          alert("Not enough budget to purchase this item!");
+        }
+      }
+
+      // Function to update the list of purchased items
+      function updatePurchasedItems() {
+        var purchasedList = document.getElementById("purchasedItems");
+        purchasedList.innerHTML = "";
+        for (var item in purchasedItems) {
+          if (purchasedItems[item]) {
+            var listItem = document.createElement("li");
+            listItem.innerText = item;
+            purchasedList.appendChild(listItem);
+          }
+        }
+      }
+
+      // Function to save purchased items and navigate to the next page
+      function saveAndContinue() {
+        localStorage.setItem("purchasedItems", JSON.stringify(purchasedItems));
+        localStorage.setItem("characterInfo", JSON.stringify(characterInfo));
+        window.location.href = "p1.html"; // Replace "next_page.html" with the actual URL of the next page
+      }
+
+      const purchasedItems = JSON.parse(localStorage.getItem("purchasedItems"));
+
+      // Check for previously purchased items on page load
+      var storedItems = localStorage.getItem("purchasedItems");
+      if (storedItems) {
+        purchasedItems = JSON.parse(storedItems);
+        updatePurchasedItems();
+      }
+    </script>
+  </head>
+  <body>
+    <h1>Item Shop</h1>
+    <p>Budget: $<span id="budget">2000</span></p>
+
+    <h2>Items:</h2>
+    <ul>
+      <li>
+        <button id="Item A" onclick="purchaseItem('ClownCostume')">
+          Clown Costume ($100)
+        </button>
+      </li>
+      <li>
+        <button id="Item B" onclick="purchaseItem('SmartPotion')">
+          Smart Potion ($150)
+        </button>
+      </li>
+      <li>
+        <button id="Item C" onclick="purchaseItem('Item C')">
+          Item C ($80)
+        </button>
+      </li>
+      <li>
+        <button id="Item Z" onclick="purchaseItem('Item Z')">
+          Item Z ($200)
+        </button>
+      </li>
+    </ul>
+
+    <h2>Purchased Items:</h2>
+    <ul id="purchasedItems"></ul>
+
+    <button onclick="saveAndContinue()">That's all</button>
+  </body>
+</html>
