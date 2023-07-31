@@ -22,17 +22,56 @@
     <script>
       // Define the items with their prices
       var items = {
-        "Item A": 100,
-        "Item B": 150,
-        "Item C": 80,
-        // Add the rest of the items and their prices
-        "Item Z": 200,
+        "Item A": 400,
+        "Item B": 600,
+        "Item C": 300,
+        "Item D": 100,
+        "Item E": 200,
+        "Item F": 200,
+        "Item G": 800,
+        "Item H": 300,
+        "Item I": 200,
+        "Item J": 200,
+        "Item K": 100,
+        "Item L": 200,
+        "Item M": 500,
+        "Item N": 1500,
+        "Item O": 400,
+        "Item P": 100,
+        "Item Q": 400,
+        "Item R": 400,
+        "Item S": 500,
+        "Item T": 200,
+        "Item U": 500,
+        "Item V": 100,
+        "Item W": 100,
       };
 
       // Map internal item names to customized display names
       var itemDisplayNames = {
         "Item A": "Clown Costume",
-        "Item B": "Smart Potion",
+        "Item B": "University Degree",
+        "Item C": "Electric Gun",
+        "Item D": "Black Spray",
+        "Item E": "Barbie Doll",
+        "Item F": "Film 'Godfather'",
+        "Item G": "Handgun",
+        "Item H": "Fake Identity Paper",
+        "Item I": "Cather in the Rye",
+        "Item J": "Automobile Manual",
+        "Item K": "Large Tool Box",
+        "Item L": "Ladder",
+        "Item M": "Black Vehicle (it's cheap)",
+        "Item N": "White Vehicle",
+        "Item O": "Gasoline",
+        "Item P": "Lighter",
+        "Item Q": "Business Outfit",
+        "Item R": "Pink Video Camera",
+        "Item S": "Time Bomb (fake)",
+        "Item T": "Eletronic Manual",
+        "Item U": "Security Document",
+        "Item V": "Repairman Uniform",
+        "Item W": "Cleaner Uniform",
         // Add the rest of the items and their display names
       };
 
@@ -53,6 +92,45 @@
             characterInfo.FUNNY += 2;
           }
           if (item === "Item B") {
+            characterInfo.SMART += 2;
+            characterInfo.FUNNY += 1;
+          }
+          if (item === "Item C") {
+            characterInfo.VIOLENT += 1;
+          }
+          if (item === "Item E") {
+            characterInfo.VIOLENT -= 1;
+            characterInfo.FUNNY += 2;
+          }
+          if (item === "Item G") {
+            characterInfo.VIOLENT += 3;
+            characterInfo.FUNNY -= 3;
+          }
+          if (item === "Item I") {
+            characterInfo.VIOLENT += 1;
+          }
+          if (item === "Item F") {
+            characterInfo.FUNNY += 1;
+            characterInfo.VIOLENT += 1;
+          }
+          if (item === "Item J") {
+            characterInfo.SMART += 1;
+          }
+          if (item === "Item Q") {
+            characterInfo.SMART += 1;
+            characterInfo.FUNNY += 1;
+          }
+          if (item === "Item R") {
+            characterInfo.FUNNY += 2;
+          }
+          if (item === "Item S") {
+            characterInfo.FUNNY += 1;
+            characterInfo.VIOLENT += 1;
+          }
+          if (item === "Item T") {
+            characterInfo.SMART += 1;
+          }
+          if (item === "Item U") {
             characterInfo.SMART += 2;
           }
         } else {
@@ -98,23 +176,117 @@
       <ul>
         <li>
           <button class="btn" id="Item A" onclick="purchaseItem('Item A')">
-            Clown Costume ($100)
+            Clown Costume ($400)
           </button>
         </li>
         <li>
           <button class="btn" id="Item B" onclick="purchaseItem('Item B')">
-            Smart Potion ($150)
+            University Degree ($600)
           </button>
         </li>
         <li>
           <button class="btn" id="Item C" onclick="purchaseItem('Item C')">
-            Item C ($80)
+            Electric Gun ($300)
           </button>
         </li>
-        <!-- Add the rest of the items -->
         <li>
-          <button class="btn" id="Item Z" onclick="purchaseItem('Item Z')">
-            Item Z ($200)
+          <button class="btn" id="Item D" onclick="purchaseItem('Item D')">
+            Black Spray ($100)
+          </button>
+        </li>
+        <li>
+          <button class="btn" id="Item E" onclick="purchaseItem('Item E')">
+            Barbie Doll ($200)
+          </button>
+        </li>
+        <li>
+          <button class="btn" id="Item F" onclick="purchaseItem('Item F')">
+            Film 'The Godfather' ($200)
+          </button>
+        </li>
+        <li>
+          <button class="btn" id="Item G" onclick="purchaseItem('Item G')">
+            Handgun ($800)
+          </button>
+        </li>
+        <li>
+          <button class="btn" id="Item H" onclick="purchaseItem('Item H')">
+            Fake Identity Paper($300)
+          </button>
+        </li>
+        <li>
+          <button class="btn" id="Item I" onclick="purchaseItem('Item I')">
+            Catcher in the Rye ($200)
+          </button>
+        </li>
+        <li>
+          <button class="btn" id="Item J" onclick="purchaseItem('Item J')">
+            Automobile Manual ($200)
+          </button>
+        </li>
+        <li>
+          <button class="btn" id="Item K" onclick="purchaseItem('Item K')">
+            Large Tool Box ($100)
+          </button>
+        </li>
+        <li>
+          <button class="btn" id="Item L" onclick="purchaseItem('Item L')">
+            Ladder ($200)
+          </button>
+        </li>
+        <li>
+          <button class="btn" id="Item M" onclick="purchaseItem('Item M')">
+            Black Vehicle (it's cheap) ($500)
+          </button>
+        </li>
+        <li>
+          <button class="btn" id="Item N" onclick="purchaseItem('Item N')">
+            White Vehicle ($1500)
+          </button>
+        </li>
+        <li>
+          <button class="btn" id="Item O" onclick="purchaseItem('Item O')">
+            Gasoline ($500)
+          </button>
+        </li>
+        <li>
+          <button class="btn" id="Item P" onclick="purchaseItem('Item P')">
+            Lighter ($100)
+          </button>
+        </li>
+        <li>
+          <button class="btn" id="Item Q" onclick="purchaseItem('Item Q')">
+            Business Outfit ($400)
+          </button>
+        </li>
+        <li>
+          <button class="btn" id="Item R" onclick="purchaseItem('Item R')">
+            Pink Video Camera ($400)
+          </button>
+        </li>
+        <li>
+          <button class="btn" id="Item S" onclick="purchaseItem('Item S')">
+            Time Bomb (fake)($400)
+          </button>
+        </li>
+        <li>
+          <button class="btn" id="Item T" onclick="purchaseItem('Item T')">
+            Eletronic Manual ($200)
+          </button>
+        </li>
+        <li>
+          <button class="btn" id="Item U" onclick="purchaseItem('Item U')">
+            Security Document ($500)
+          </button>
+        </li>
+        <li>
+          <button class="btn" id="Item V" onclick="purchaseItem('Item V')">
+            Repairman Uniform ($100)
+          </button>
+        </li>
+        <li>
+          <button class="btn" id="Item W" onclick="purchaseItem('Item W')">
+            Cleaner Uniform ($100)
           </button>
         </li>
       </ul>

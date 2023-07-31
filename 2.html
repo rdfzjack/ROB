@@ -19,6 +19,31 @@
         by a motion sensor, and the camera track any detected movement within
         the lobby space.
       </p>
+      <a id="trueBtn">Spray black-paint over the motion detector</a><br />
+      <a id="falseBtn">Wait until the guard come back</a>
+
+      <script>
+        const trueBtn = document.getElementById("trueBtn");
+        const falseBtn = document.getElementById("falseBtn");
+        let purchasedItems = JSON.parse(localStorage.getItem("purchasedItems"));
+
+        // get purchasedItems from localStorage
+        if (!purchasedItems["Item D"]) {
+          thirdOption = document
+            .getElementById("trueBtn")
+            .setAttribute("hidden", true);
+        }
+
+        trueBtn.addEventListener("click", function () {
+          localStorage.setItem("CamBr", "true");
+          window.location.href = "201.html";
+        });
+
+        falseBtn.addEventListener("click", function () {
+          localStorage.setItem("CamBr", "false");
+          window.location.href = "202.html";
+        });
+      </script>
     </div>
   </body>
 </html>

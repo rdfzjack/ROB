@@ -14,19 +14,27 @@
     <div class="container">
       <p>"How can I assist you?" asked the security guard.</p>
       <a id="deadBtn">This is a robbery!</a><br />
-      <a id="nextBtn">I am here to repair the air-con.</a>
-      <a id="thirdBtn">Third</a>
+      <a id="nextBtn">I am here to repair the air-con.</a><br />
+      <a id="thirdBtn">I am here to do the cleaning.</a><br />
+      <a id="fourthBtn">Play it funny.</a>
 
       <script>
         const nextBtn = document.getElementById("nextBtn");
         const deadBtn = document.getElementById("deadBtn");
         const thirdBtn = document.getElementById("thirdBtn");
-        let purchasedItems = localStorage.getItem("purchasedItems");
+        const fourthBtn = document.getElementById("fourthBtn");
+        let purchasedItems = JSON.parse(localStorage.getItem("purchasedItems"));
 
         // get purchasedItems from localStorage
-        if (!purchasedItems["Item A"]) {
+        if (!purchasedItems["Item W"]) {
           thirdOption = document
             .getElementById("thirdBtn")
+            .setAttribute("hidden", true);
+        }
+
+        if (!purchasedItems["Item V"]) {
+          thirdOption = document
+            .getElementById("nextBtn")
             .setAttribute("hidden", true);
         }
 
@@ -39,12 +47,16 @@
           }
         });
 
-        thirdBtn.addEventListener("click", function () {
-          window.location.href = "001.html";
-        });
-
         deadBtn.addEventListener("click", function () {
           window.location.href = "000.html";
+        });
+
+        thirdBtn.addEventListener("click", function () {
+          window.location.href = "1021.html";
+        });
+
+        fourthBtn.addEventListener("click", function () {
+          window.location.href = "check1.html";
         });
       </script>
     </div>

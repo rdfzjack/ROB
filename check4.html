@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Page 3</title>
+    <link rel="stylesheet" href="style.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <div class="container">
+      <p id="result"></p>
+      <a id="Continue">Continue</a>
+
+      <script>
+        const difficulties = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9];
+
+        // Function to perform a skill check
+        function performSkillCheck(abilityScore, difficulty) {
+          // Compare the player's ability score to the difficulty level
+          return abilityScore >= difficulty;
+        }
+
+        const resultElement = document.getElementById("result");
+        const characterInfo = JSON.parse(localStorage.getItem("characterInfo"));
+        // Perform the skill check here and update the result accordingly
+
+        const isSuccess = performSkillCheck(
+          characterInfo.VIOLENT,
+          difficulties[6]
+        );
+
+        if (isSuccess) {
+          resultElement.textContent = "You pass the skill check.";
+          resultElement.insertAdjacentHTML(
+            "afterend",
+            `<p>Your VIOLENT is ${characterInfo.VIOLENT} and difficulty is ${difficulties[6]}</p>`
+          );
+          const Continue = document.getElementById("Continue");
+          Continue.addEventListener("click", function () {
+            window.location.href = "2101.html";
+          });
+        } else {
+          resultElement.textContent = "You failed the skill check.";
+          resultElement.insertAdjacentHTML(
+            "afterend",
+            `<p>Your VIOLENT is ${characterInfo.VIOLENT} and difficulty is ${difficulties[6]}</p>`
+          );
+          // Redirect to game over page
+          const Continue = document.getElementById("Continue");
+          Continue.addEventListener("click", function () {
+            window.location.href = "check4d.html";
+          });
+        }
+      </script>
+    </div>
+  </body>
+</html>

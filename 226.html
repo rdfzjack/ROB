@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <div class="container">
+      <p>You book a quiet hotel room.</p>
+      <p>It's time to see how much you have robbed.</p>
+      <a id="nextBtn">Open the cash container.</a><br />
+
+      <script>
+        const nextBtn = document.getElementById("nextBtn");
+
+        nextBtn.addEventListener("click", function () {
+          const DestroyEvidence = localStorage.getItem("DestroyEvidence");
+          if (DestroyEvidence === "true") {
+            window.location.href = "ending4.html";
+          } else {
+            window.location.href = "227.html";
+          }
+        });
+      </script>
+    </div>
+  </body>
+</html>

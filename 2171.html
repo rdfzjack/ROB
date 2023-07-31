@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <div class="container">
+      <p>You speed up the car.</p>
+      <p>You have a chance to loose the police car if you drive faster.</p>
+      <a id="nextBtn">Faster!</a>
+    </div>
+
+    <script>
+      const nextBtn = document.getElementById("nextBtn");
+
+      nextBtn.addEventListener("click", function () {
+        const BadCar = localStorage.getItem("BadCar");
+        if (BadCar === "true") {
+          window.location.href = "2172.html";
+        } else {
+          window.location.href = "2173.html";
+        }
+      });
+    </script>
+  </body>
+</html>

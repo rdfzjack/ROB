@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <div class="container">
+      <p>In chaos, you run out of the bank with the cash container.</p>
+      <a id="firBtn">Just Run!</a><br />
+      <a id="secBtn">Rob a car.</a><br />
+      <a id="thirdBtn">Get into the (cheap) black car.</a><br />
+      <a id="fourthBtn">Get into the white car.</a>
+    </div>
+    <script>
+      const firBtn = document.getElementById("firBtn");
+      const secBtn = document.getElementById("secBtn");
+      const thirdBtn = document.getElementById("thirdBtn");
+      const fourthBtn = document.getElementById("fourthBtn");
+      let purchasedItems = JSON.parse(localStorage.getItem("purchasedItems"));
+
+      // get purchasedItems from localStorage
+      if (!purchasedItems["Item M"]) {
+        thirdOption = document
+          .getElementById("thirdBtn")
+          .setAttribute("hidden", true);
+      }
+
+      if (!purchasedItems["Item N"]) {
+        thirdOption = document
+          .getElementById("fourthBtn")
+          .setAttribute("hidden", true);
+      }
+
+      firBtn.addEventListener("click", function () {
+        window.location.href = "run.html";
+      });
+
+      secBtn.addEventListener("click", function () {
+        window.location.href = "214.html";
+      });
+
+      thirdBtn.addEventListener("click", function () {
+        localStorage.setItem("BadCar", "true");
+        window.location.href = "216.html";
+      });
+
+      fourthBtn.addEventListener("click", function () {
+        window.location.href = "216.html";
+      });
+    </script>
+  </body>
+</html>

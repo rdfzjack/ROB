@@ -10,12 +10,33 @@
       rel="stylesheet"
     />
   </head>
+  <script>
+    // Function to check the visit count and redirect if it's the fifth visit
+    function checkVisitCount() {
+      // Retrieve the visit count from localStorage or set it to 0 if it doesn't exist
+      var visitCount = parseInt(localStorage.getItem("visitCount")) || 0;
+
+      // Increment the visit count by 1
+      visitCount++;
+
+      // Store the updated visit count in localStorage
+      localStorage.setItem("visitCount", visitCount);
+
+      // Check if it's the fifth visit
+      if (visitCount === 2) {
+        // Redirect to a different website after the fifth visit
+        window.location.href = "emergency1.html";
+      }
+    }
+
+    // Call the checkVisitCount function when the page loads
+    checkVisitCount();
+  </script>
   <body>
     <div class="container">
       <p>The emergency entrance is tightly locked.</p>
-      <p>But there is the ventilation fan.</p>
-      <p>Interesting.</p>
-      <a id="trueBtn">Throw trash</a>
+      <p>But there is a ventilation fan, which is connected to the air-con.</p>
+      <a id="trueBtn">Throw trash</a><br />
       <a id="falseBtn">Leave</a>
 
       <script>

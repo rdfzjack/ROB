@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <div class="container">
+      <p>The guard comes back with a cup of tea.</p>
+      <p>You see the key to the vault dangling on his belt.</p>
+      <p>
+        Now he's checking the monitor. It seems a good chance to knock him
+        unconscious.
+      </p>
+      <a id="secBtn">Knock him out bare hand</a><br />
+      <a id="thirdBtn">Use Electric Gun</a>
+
+      <script>
+        const secBtn = document.getElementById("secBtn");
+        const thirdBtn = document.getElementById("thirdBtn");
+        let purchasedItems = JSON.parse(localStorage.getItem("purchasedItems"));
+        console.log(purchasedItems["Item C"]);
+
+        // get purchasedItems from localStorage
+        if (!purchasedItems["Item C"]) {
+          thirdOption = document
+            .getElementById("thirdBtn")
+            .setAttribute("hidden", true);
+        }
+
+        secBtn.addEventListener("click", function () {
+          const CamBr = localStorage.getItem("CamBr");
+          if (CamBr === "true") {
+            window.location.href = "203.html";
+          } else {
+            window.location.href = "206.html";
+          }
+        });
+
+        thirdBtn.addEventListener("click", function () {
+          const CamBr = localStorage.getItem("CamBr");
+          if (CamBr === "true") {
+            window.location.href = "204.html";
+          } else {
+            window.location.href = "206.html";
+          }
+        });
+      </script>
+    </div>
+  </body>
+</html>

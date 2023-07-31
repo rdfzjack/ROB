@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <div class="container">
+      <p>There are couple of guards at the entrances.</p>
+      <p>And the bank workers and customers will certainly notice you.</p>
+      <p>You need to find a way to get out of the bank with the cash.</p>
+      <a id="firBtn">Play it smart.</a><br />
+      <a id="secBtn">Play it funny.</a><br />
+      <a id="thirdBtn">Ignite the booklet on the table.</a>
+    </div>
+    <script>
+      const firBtn = document.getElementById("firBtn");
+      const secBtn = document.getElementById("secBtn");
+      const thirdBtn = document.getElementById("thirdBtn");
+      let purchasedItems = JSON.parse(localStorage.getItem("purchasedItems"));
+
+      // get purchasedItems from localStorage
+      if (!purchasedItems["Item P"]) {
+        thirdOption = document
+          .getElementById("thirdBtn")
+          .setAttribute("hidden", true);
+      }
+
+      firBtn.addEventListener("click", function () {
+        window.location.href = "check5.html";
+      });
+
+      secBtn.addEventListener("click", function () {
+        window.location.href = "check6.html";
+      });
+
+      thirdBtn.addEventListener("click", function () {
+        window.location.href = "2121.html";
+      });
+    </script>
+  </body>
+</html>

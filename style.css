@@ -22,8 +22,8 @@ body {
     color: rgb(255, 255, 255);
     font-family: "Press Start 2P", "consolas";
     text-align: center;
-   /* position: relative;
-    top: 15%;*/
+    position: relative;
+    top: 15%;
     line-height: 150%;
   }
 

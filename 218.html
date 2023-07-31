@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <div class="container">
+      <p>You continue driving with normal speed.</p>
+      <p>But the police car quickly takes over, and signals you to stop.</p>
+      <p>"I am looking for a bank robber, and...you look like that guy."</p>
+      <p>"I need to check your paper."</p>
+      <p>Damn, he gets suspicious!</p>
+      <a href="check8.html">Play it violent.</a><br />
+      <a href="219.html">Show her your driving licence.</a><br />
+      <a id="thirdBtn">Show her the fake ID.</a>
+    </div>
+    <script>
+      const thirdBtn = document.getElementById("thirdBtn");
+      let purchasedItems = JSON.parse(localStorage.getItem("purchasedItems"));
+
+      // get purchasedItems from localStorage
+      if (!purchasedItems["Item F"]) {
+        thirdOption = document
+          .getElementById("thirdBtn")
+          .setAttribute("hidden", true);
+      }
+      thirdBtn.addEventListener("click", function () {
+        window.location.href = "220.html";
+      });
+    </script>
+  </body>
+</html>

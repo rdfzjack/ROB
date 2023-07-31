@@ -28,42 +28,29 @@
 
         const isSuccess = performSkillCheck(
           characterInfo.SMART,
-          difficulties[2]
+          difficulties[4]
         );
 
         if (isSuccess) {
-          resultElement.textContent = "It is just a routine inspection.";
+          resultElement.textContent = "You pass the skill check.";
           resultElement.insertAdjacentHTML(
             "afterend",
-            `<p>Your SMART is ${characterInfo.SMART} and difficulty is ${difficulties[2]}</p>`
+            `<p>Your SMART is ${characterInfo.SMART} and difficulty is ${difficulties[4]}</p>`
           );
           const Continue = document.getElementById("Continue");
           Continue.addEventListener("click", function () {
-            window.location.href = "1021.html";
+            window.location.href = "check1r.html";
           });
         } else {
           resultElement.textContent = "You failed the skill check.";
           resultElement.insertAdjacentHTML(
             "afterend",
-            `<p>Your SMART is ${characterInfo.SMART} but difficulty is ${difficulties[2]}</p>`
+            `<p>Your SMART is ${characterInfo.SMART} but difficulty is ${difficulties[4]}</p>`
           );
-          resultElement.insertAdjacentHTML(
-            "afterend",
-            `<p>"Hmmm...but I received a call." "We did not call you." </p>`
-          );
-          resultElement.insertAdjacentHTML(
-            "afterend",
-            `<p>"There seems to be some misunderstanding."</p>`
-          );
-          resultElement.insertAdjacentHTML(
-            "afterend",
-            `<p>"You need to figure out what's going on."</p>`
-          );
-
           // Redirect to game over page
           const Continue = document.getElementById("Continue");
           Continue.addEventListener("click", function () {
-            window.location.href = "ending1.html";
+            window.location.href = "check1d.html";
           });
         }
       </script>

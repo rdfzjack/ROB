@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Page 3</title>
     <link rel="stylesheet" href="style.css" />
     <link
       href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap"
@@ -14,7 +13,7 @@
       <a id="Continue">Continue</a>
 
       <script>
-        const difficulties = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9];
+        const difficulties = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 13];
 
         // Function to perform a skill check
         function performSkillCheck(abilityScore, difficulty) {
@@ -28,16 +27,16 @@
 
         const isSuccess = performSkillCheck(
           characterInfo.VIOLENT,
-          difficulties[9]
+          difficulties[11]
         );
 
         if (isSuccess) {
-          resultElement.textContent =
-            "Before the guard can let out another cry, you take her down.";
+          resultElement.textContent = "You pass the skill check.";
           resultElement.insertAdjacentHTML(
             "afterend",
-            `<p>You can enter the bank now.</p>`
+            `<p>Your VIOLENCE is ${characterInfo.VIOLENT} and difficulty is ${difficulties[11]}</p>`
           );
+
           // Continue the game to the next page
           const Continue = document.getElementById("Continue");
           Continue.addEventListener("click", function () {
@@ -47,15 +46,7 @@
           resultElement.textContent = "You failed the skill check.";
           resultElement.insertAdjacentHTML(
             "afterend",
-            `<p>Your VIOLENCE is ${characterInfo.VIOLENT} but difficulty is ${difficulties[9]}</p>`
-          );
-          resultElement.insertAdjacentHTML(
-            "afterend",
-            `<p>Before you can react, the guard shot you in the leg.</p>`
-          );
-          resultElement.insertAdjacentHTML(
-            "afterend",
-            `<p>You fell to the ground.</p>`
+            `<p>Your VIOLENCE is ${characterInfo.VIOLENT} but difficulty is ${difficulties[11]}</p>`
           );
 
           // Redirect to game over page

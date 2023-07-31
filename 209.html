@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <div class="container">
+      <p>It's heavy. There must be A LOT of cash inside.</p>
+      <p>Now you need to quickly exit before anyone noticed you.</p>
+      <a id="firBtn">Take the cash container.</a><br />
+      <a id="secBtn">Put the cash container inside the tool box as disguise.</a>
+
+      <script>
+        const firBtn = document.getElementById("firBtn");
+        const secBtn = document.getElementById("secBtn");
+        let purchasedItems = JSON.parse(localStorage.getItem("purchasedItems"));
+
+        if (!purchasedItems["Item K"]) {
+          thirdOption = document
+            .getElementById("secBtn")
+            .setAttribute("hidden", true);
+        }
+
+        firBtn.addEventListener("click", function () {
+          window.location.href = "210.html";
+        });
+
+        secBtn.addEventListener("click", function () {
+          window.location.href = "211.html";
+        });
+      </script>
+    </div>
+  </body>
+</html>

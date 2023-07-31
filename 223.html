@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <div class="container">
+      <p>You park the car at a deserted car lot.</p>
+      <p>You will</p>
+      <a id="firBtn">Walk to the pier.</a><br />
+      <a id="thirdBtn">Destroy all evidence.</a>
+    </div>
+    <script>
+      const firBtn = document.getElementById("firBtn");
+      const thirdBtn = document.getElementById("thirdBtn");
+      let purchasedItems = JSON.parse(localStorage.getItem("purchasedItems"));
+
+      // get purchasedItems from localStorage
+      if (!purchasedItems["Item O"]) {
+        thirdOption = document
+          .getElementById("thirdBtn")
+          .setAttribute("hidden", true);
+      }
+
+      firBtn.addEventListener("click", function () {
+        window.location.href = "224.html";
+      });
+
+      thirdBtn.addEventListener("click", function () {
+        localStorage.setItem("DestroyEvidence", "true");
+        window.location.href = "225.html";
+      });
+    </script>
+  </body>
+</html>
